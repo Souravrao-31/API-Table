@@ -42,7 +42,7 @@ const App = () => {
   const getProductData = async () => {
     try {
       const data = await axios.get(
-        "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline"
+        ""  //copy your api here..
       );
       console.log(data.data);
       setProduct(data.data);
@@ -56,7 +56,7 @@ const App = () => {
   }, []);
   return (
     <div className="App">
-      <h1>Lets code tamil</h1>
+      <h1>Table</h1>
       <input
         type="text"
         placeholder="Search here"
@@ -85,6 +85,7 @@ const App = () => {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
+            <StyledTableCell align="left"> Id </StyledTableCell>
               <StyledTableCell>Product Name</StyledTableCell>
               <StyledTableCell align="right">Product Price</StyledTableCell>
             </TableRow>
@@ -103,6 +104,9 @@ const App = () => {
               .map((item) => {
                 return (
                   <StyledTableRow key={item.id}>
+                    <StyledTableCell align="left">
+                      {item.id}
+                    </StyledTableCell>
                     <StyledTableCell component="th" scope="row">
                       {item.name}
                     </StyledTableCell>
